@@ -1,5 +1,3 @@
-from django.test import TestCase
-
 ####### CORE IMPORTS ###############
 import cv2
 from cv2 import dnn_superres
@@ -13,9 +11,9 @@ import string
 from datetime import datetime
 import math
 
-class MLTests(TestCase):
-    #Helper Functions
-
+class ML():
+    """" This class is for realizing ml models """
+    
     def bgr2rgb(self, img):
         im_rgb = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
         return im_rgb
@@ -119,20 +117,3 @@ class MLTests(TestCase):
         time_stamp = now.strftime("%m_%d_%H_%M_%S") 
         fn =os.path.join(os.path.dirname(__file__),'Saved_Images\\'+typ+time_stamp+'.png') # Couldnt find a way to get the correct system dir path so dont change the name of the file this is a mess. I repeat This is a mess .
         cv2.imwrite(fn,img)
- 
-    def test_ml_model(self):
-        test_image_path = '/home/imangali/Documents/django-projects/image_enhancer/backend/server/ml/test.jpg'
-        with open(test_image_path, 'rb') as img_file:
-            main_img_cv = self.loadim(img_file)
-        initial_height = main_img_cv.shape[0]
-        initial_width = main_img_cv.shape[1]
-        upscaled_image_cv = self.upScaleFSRCNN(main_img_cv)
-        self.save('FSRCNN_',upscaled_image_cv)
-        final_height = upscaled_image_cv.shape[0]
-        final_width = upscaled_image_cv.shape[1]
-        final_height_expected = initial_height * 3
-        final_width_expected = initial_width * 3
-
-        self.assertEqual(final_height, final_height_expected)
-        self.assertEqual(final_width, final_width_expected)
-        
