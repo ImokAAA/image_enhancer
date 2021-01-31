@@ -1,9 +1,19 @@
-{% extends "main_page/base.html" %}
+{% extends "users/base_auth_reg.html" %}
 {% block content %}
 {% load static %}
-    <form method="POST">
-        {% csrf_token %}
-        {{form.as_p}}
-        <button>Login</button>
-    </form>
+	      	<input id="tab-1" type="radio" name="tab" class="sign-in" checked><a style="color:#fff; border-color:#1161ee;" for="tab-1" class="tab">Sign In</a>
+	      	<input id="tab-2" type="radio" name="tab" class="sign-up"><a href="{% url 'register_url' %}" for="tab-2" class="tab">Sign Up</a>
+	        <div class="login-form">
+	        	<div class="sign-in-htm">
+				    <form method="POST">
+				        {% csrf_token %}
+				        {{form.as_p}}
+				        <button>Login</button>
+				    </form>
+				</div>
+			</div>
+
+	        <div class="foot-lnk">
+	          <a href="#forgot">Forgot Password?</a>
+	        </div>
 {% endblock content %}
