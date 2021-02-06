@@ -1,8 +1,8 @@
 {% extends "users/base_auth_reg.html" %}
 {% block content %}
 {% load static %}
-	      	<input id="tab-1" type="radio" name="tab" class="sign-in" checked><a href="{% url 'login_url' %}" style="color:#fff; border-color:#1161ee;" for="tab-1" class="tab">Sign In</a>
-	      	<input id="tab-2" type="radio" name="tab" class="sign-up"><a for="tab-2" class="tab">Sign Up</a>
+	      	<input id="tab-1" type="radio" name="tab" class="sign-in"><a href="{% url 'login_url' %}" style="color:#fff; border-color:#1161ee;" for="tab-1" class="tab">Sign In</a>
+	      	<input id="tab-2" type="radio" name="tab" class="sign-up" checked><a for="tab-2" class="tab">Sign Up</a>
 	        <div class="login-form">
 			    <form method="POST">
 			        {% csrf_token %}
