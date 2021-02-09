@@ -18,7 +18,6 @@ from django.urls import include, path
 from django.views.decorators.csrf import csrf_exempt
 from django.conf import settings
 from django.conf.urls.static import static
-from ml.views import image_view
 
 
 urlpatterns = [

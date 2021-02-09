@@ -1,0 +1,7 @@
+<h2>Your images</h2>
+    <ul>
+        {% for image in images_model %}
+        <a class="article-title" href="{% url 'image_detail' image.id %}"><li>{{ image.name }}</li></a>
+            <img src={{ image.image.url }} alt={{ image.name }}>
+        {% endfor %}
+    </ul>
